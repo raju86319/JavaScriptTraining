@@ -1,5 +1,19 @@
-function basic_op(operation, operand1, operand2)
+function basicOp(operation, value1, value2)
 {
-  var airthmeticEquation=operand1+operation+operand2;
-  return(eval(airthmeticEquation));
+  switch(operation)
+  {
+  
+  case '+': return value1+value2;
+             break;
+             
+  case '-': return value1-value2;
+             break;
+             
+  case '*': return value1*value2;
+             break;
+             
+  case '/': return value1/value2;
+             break;
+  }
+  
 }
