@@ -35,3 +35,4 @@ function dividedBy(x) {
         return result / x;
     }
 }
+
