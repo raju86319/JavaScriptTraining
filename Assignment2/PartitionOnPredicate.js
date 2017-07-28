@@ -1,14 +1,14 @@
-function partitionOn(pred, items) {
+function partitionOn(predicate, items) {
     var filterTrueitems = [];
     var filterFalseitems = [];
     items.forEach(function (value) {
-        if (pred(value)) {
-            filterTrue.push(value);
+        if (predicate(value)) {
+            filterTrueitems.push(value);
         } else {
-            filterFalse.push(value);
+            filterFalseitems.push(value);
         }
     });
     items.length=0;
-    items.push.apply(items, filterFalse.concat(filterTrue));
+    items.push.apply(items, filterFalseitems.concat(filterTrueitems));
     return filterFalseitems.length;
-}  
+}
