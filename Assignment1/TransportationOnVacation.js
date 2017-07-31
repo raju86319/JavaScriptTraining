@@ -4,7 +4,8 @@ function rentalCarCost(totalDays) {
         totalCost = (totalDays * 40) - 20;
     } else if (totalDays >= 7) {
         totalCost = (totalDays * 40) - 50;
-    } else
+    } else {
         totalCost = totalDays * 40;
+    }
     return totalCost;
 }
