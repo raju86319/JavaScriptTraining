@@ -1,13 +1,12 @@
-function rentalCarCost(d) {
-    // d is the number of days
+function rentalCarCost(totalDays) {
     var totalCost;
-    if (d >= 3 && d < 7) {
-        totalCost = (d * 40) - 20;
+    if (totalDays >= 3 && totalDays < 7) {
+        totalCost = (totalDays * 40) - 20;
     }
-    else if (d >= 7) {
-        totalCost = (d * 40) - 50;
+    else if (totalDays >= 7) {
+        totalCost = (totalDays * 40) - 50;
     }
     else
-        totalCost = d * 40;
+        totalCost = totalDays * 40;
     return totalCost;
 }
