@@ -1,6 +1,6 @@
-function createFunctions(n) {
+function createFunctions(numberOfFunctions) {
   var callbacks = [];
-  for (var i = 0; i < n; i++) {
+  for (var i = 0; i < numberOfFunctions; i++) {
     callbacks.push(makeCallback(i));
 
   }
