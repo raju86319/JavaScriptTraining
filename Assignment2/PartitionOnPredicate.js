@@ -8,7 +8,7 @@ function partitionOn(predicate, items) {
             filterFalseitems.push(value);
         }
     });
-    items.length=0;
+    items.length = 0;
     items.push.apply(items, filterFalseitems.concat(filterTrueitems));
     return filterFalseitems.length;
 }
