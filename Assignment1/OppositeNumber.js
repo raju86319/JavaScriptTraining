@@ -1,3 +1,3 @@
-function opposite(number) {
-  return (number * -1);
+function opposite(numberToReverse) {
+  return (numberToReverse * -1);
 }
