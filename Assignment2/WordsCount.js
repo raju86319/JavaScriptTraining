@@ -1,3 +1,3 @@
-function countWords(str) {
-    return str.trim().length === 0 ? str.trim().length : str.trim().replace(/\s+/g, ' ').split(' ').length;
+function countWords(stringToCountWords) {
+    return stringToCountWords.trim().length === 0 ? stringToCountWords.trim().length : stringToCountWords.trim().replace(/\s+/g, ' ').split(' ').length;
 }

@@ -1,3 +1,3 @@
-function getMiddle(fullString) {
-  return fullString.length % 2 ? fullString.substr(fullString.length / 2, 1) : fullString.substr((fullString.length / 2) - 1, 2);
+function getMiddle(stringToGetMiddle) {
+  return stringToGetMiddle.length % 2 ? stringToGetMiddle.substr(stringToGetMiddle.length / 2, 1) : stringToGetMiddle.substr((stringToGetMiddle.length / 2) - 1, 2);
 }
