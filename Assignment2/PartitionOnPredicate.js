@@ -1,6 +1,5 @@
 function partitionOn(predicate, items) {
-    var filterTrueitems = [];
-    var filterFalseitems = [];
+    var filterTrueitems = [],filterFalseitems = [];
     items.forEach(function (value) {
          predicate(value) ? filterTrueitems.push(value) : filterFalseitems.push(value);
     });
