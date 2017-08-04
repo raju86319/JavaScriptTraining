@@ -1,6 +1,5 @@
 function always(n) {
-  var number = function () {
+  return function () {
     return n;
   }
-  return number;
 }
