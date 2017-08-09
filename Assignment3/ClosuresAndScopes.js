@@ -1,11 +1,12 @@
-function createFunctions(lengthOfArray) {
+function createFunctions(n) {
   var callbacks = [];
-  for (var i = 0; i < lengthOfArray; i++) {
-    (function () {
-      var temp = i;
-      var func = function () { return temp; };
-      callbacks.push(func);
-    }());
+  for (var i=0; i<n; i++) {
+    var func = (function(x) {
+        return function() { return x;}
+    })(i);
+    callbacks.push(func);
   }
-  return callbacks;
-} 
+    return callbacks;
+}
+
+
