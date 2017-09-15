@@ -1,13 +1,13 @@
 var SearchComponent = (function () {
-    "use strict";
+    //"use strict";
     function SearchComponent() { };
     SearchComponent.prototype.renderSearchComponent = function () {
-        let searchSection = document.createElement('div');
+        var searchSection = document.createElement('div');
         searchSection.classList.add('search-section');
-        let searchEl = document.createElement('input');
+        var searchEl = document.createElement('input');
         searchEl.setAttribute('type', 'text');
         searchEl.setAttribute('id', 'searchText');
-        let searchButton = document.createElement('input');
+        var searchButton = document.createElement('input');
         searchButton.setAttribute('type', 'button');
         searchButton.setAttribute('value', 'Search');
         searchButton.addEventListener('click', this.searchVideos.bind(this));
@@ -18,7 +18,7 @@ var SearchComponent = (function () {
     }
 
     SearchComponent.prototype.searchVideos = function (evt) {
-        let searchInputEl,
+        var searchInputEl,
             searchKey,
             searchUrl,
             params;
@@ -33,28 +33,30 @@ var SearchComponent = (function () {
             q: searchKey
         };
         utility.resetTotalCards();
-        youtubeApiCalls.makeCallToYoutubeApi(searchUrl, params).then((response) => {
+        var self = this;
+        youtubeApiCalls.makeCallToYoutubeApi(searchUrl, params).then(function(response) {
             utility.setTotalCards(response.items);
-            this.renderVideoCards();
+            self.renderVideoCards();
         });
     }
 
     SearchComponent.prototype.renderVideoCards = function () {
-        youtube.renderCards();
+    	youtube.renderCards();
     }
 
     SearchComponent.prototype.attachResizeHandler = function () {
-        window.addEventListener('resize', (evt) => {
-            let numberOfCardsToRender = utility.getNumberOfCardsToRender(),
+    	var self = this;
+        window.addEventListener('resize', function(evt)  {
+            var numberOfCardsToRender = utility.getNumberOfCardsToRender(),
                 currentNumberOfCardsInPage = document.querySelectorAll('.videos-div').length;
             if (currentNumberOfCardsInPage === 0) {
                 return;
             }
             if (numberOfCardsToRender > currentNumberOfCardsInPage) {
-                this.renderVideoCards();
+                self.renderVideoCards();
             } else {
                 if (numberOfCardsToRender < currentNumberOfCardsInPage) {
-                    let searchResults = document.getElementById('search-results');
+                    var searchResults = document.getElementById('search-results');
                     searchResults.removeChild(searchResults.lastChild);
                     pagination.renderPaginationControls();
                 }

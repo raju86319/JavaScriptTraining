@@ -1,22 +1,22 @@
 var Pagination = (function() {
-    "use strict";
+    //"use strict";
     function Pagination() { }
     Pagination.prototype.renderPaginationControls = function() {
-        let numberOfpages = this.calculateNumberOfPages();
+        var numberOfpages = this.calculateNumberOfPages();
         this.renderPageNumbers(numberOfpages);
     }
 
     Pagination.prototype.renderPageNumbers = function(numberOfpages) {
         this.clearPaginationControls();
-        let paginationEl = document.createElement('div');
+        var paginationEl = document.createElement('div');
         paginationEl.setAttribute('id', 'pagination');
         
-        let paginationControlsEl = document.createElement('div');
+        var paginationControlsEl = document.createElement('div');
         paginationControlsEl.classList.add('pagination-controls')
         
-        let fragment = document.createDocumentFragment();
-        for(let i=0; i<numberOfpages; i++) {
-            let aTag = document.createElement('a');
+        var fragment = document.createDocumentFragment();
+        for(var i=0; i<numberOfpages; i++) {
+            var aTag = document.createElement('a');
             aTag.appendChild(document.createTextNode(i+1));
             aTag.setAttribute('id', 'page' + (i+1));
             aTag.setAttribute('href', '#');
@@ -29,24 +29,24 @@ var Pagination = (function() {
     }
 
     Pagination.prototype.clearPaginationControls = function() {
-        let paginationEl = document.querySelector('#pagination');
+        var paginationEl = document.querySelector('#pagination');
         if (paginationEl) {
             paginationEl.parentElement.removeChild(paginationEl);
         }
     }
 
     Pagination.prototype.calculateNumberOfPages = function() {
-        let numberOfCardsInCurrentPage = utility.getNumberOfCardsToRender();
-        let totalCards = utility.getTotalCards().length;
-        let additionalPagesToAdd = totalCards % numberOfCardsInCurrentPage === 0 ? 0 : 1;
-        let numberOfpages = Math.floor(totalCards / numberOfCardsInCurrentPage) + additionalPagesToAdd;
+        var numberOfCardsInCurrentPage = utility.getNumberOfCardsToRender();
+        var totalCards = utility.getTotalCards().length;
+        var additionalPagesToAdd = totalCards % numberOfCardsInCurrentPage === 0 ? 0 : 1;
+        var numberOfpages = Math.floor(totalCards / numberOfCardsInCurrentPage) + additionalPagesToAdd;
         return numberOfpages;
     }
 
     Pagination.prototype.markCurrentPageActive = function() {
-        let paginationEl = document.querySelector('#pagination').firstElementChild;
-        let currentPage = utility.getCurrentPage();
-        let aTag = paginationEl.querySelector('#page' + currentPage);
+        var paginationEl = document.querySelector('#pagination').firstElementChild;
+        var currentPage = utility.getCurrentPage();
+        var aTag = paginationEl.querySelector('#page' + currentPage);
 
         if (!aTag) {
             currentPage = 1;
@@ -54,7 +54,7 @@ var Pagination = (function() {
             aTag = paginationEl.querySelector('#page' + currentPage);
         }
 
-        let previousActivePage = paginationEl.querySelector('.active');
+        var previousActivePage = paginationEl.querySelector('.active');
         if (previousActivePage) {
             previousActivePage.classList.remove('active');
         }

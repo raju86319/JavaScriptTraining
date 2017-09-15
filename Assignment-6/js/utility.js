@@ -1,6 +1,6 @@
 var Utility = (function () {
     var instance;
-    "use strict";
+    //"use strict";
     function Utility() {
         if (!instance) {
             instance = this;
@@ -29,9 +29,9 @@ var Utility = (function () {
     }
 
     Utility.prototype.getNumberOfCardsToRender = function () {
-        let windowWidth = window.innerWidth;
-        let numberOfCards = 1;
-        let eachCardWidth = 380;
+        var windowWidth = window.innerWidth;
+        var numberOfCards = 1;
+        var eachCardWidth = 380;
         while (numberOfCards * eachCardWidth < windowWidth) {
             numberOfCards++;
         }
@@ -39,16 +39,16 @@ var Utility = (function () {
     }
 
     Utility.prototype.getStartIndexForPage = function () {
-        let numberOfCards = this.getNumberOfCardsToRender();
-        let currentPage = this.getCurrentPage();
+        var numberOfCards = this.getNumberOfCardsToRender();
+        var currentPage = this.getCurrentPage();
         return (currentPage * numberOfCards) - numberOfCards
     }
 
     Utility.prototype.getFormattedDate = function (date) {
-        let dt = new Date(date);
-        let month = dt.getMonth() + 1;
-        let day = dt.getDate();
-        let year = dt.getFullYear();
+        var dt = new Date(date);
+        var month = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var year = dt.getFullYear();
         return year + "-" + month + "-" + day;
     }
     return Utility;
